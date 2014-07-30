@@ -24,7 +24,7 @@ var alertsReader = {
 	 * current alerts
 	 */
 	currentAlerts_: [],
-	
+
 	/**
 	 * div elements of alerts
 	 * aggregated if there is no popup connected
@@ -37,7 +37,7 @@ var alertsReader = {
   pollAlerts: function() {
 		var req = new XMLHttpRequest();
 		req.open("GET", this.dataSource_, false);
-		
+
 		try {
 			req.send(null);
 		} catch(err) {
@@ -96,14 +96,20 @@ var alertsReader = {
 		var alertTime = formattedTime();
 		var opt = {
 			type: "list",
-			title: "ALERTS",
+			title: alertTime,
 			iconUrl: 'icon.png',
 			priority: 2,
 			message: "התראות צבע אדום בשעה " + alertTime,
-			items: this.currentAlerts_
+			items: []
 		};
-		chrome.notifications.create("", opt, function(id) {
-		});
+
+		var LIST_SIZE = 3;
+		var i = 0;
+		while(i < this.currentAlerts_.length) {
+			opt.items = this.currentAlerts_.slice(i, i + LIST_SIZE);
+			chrome.notifications.create("", opt, function(id) {});
+			i += LIST_SIZE;
+		}
 	},
 
 	/**
