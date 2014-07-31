@@ -3,7 +3,7 @@
 
   "name": "Tzeva Adom",
   "description": "This extension shows whenever there is a Tzeva Adom",
-  "version": "0.1",
+  "version": "0.1.1",
   
   "permissions": [
     "http://www.oref.org.il/",
