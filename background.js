@@ -46,6 +46,9 @@ var alertsReader = {
 		}
 
 		try {
+			if(req.responseText.length == 0) {
+				return;
+			}
 			var obj = JSON.parse(req.responseText);
 		} catch(err) {
 			console.log("bad JSON input: " + req.responseText);
