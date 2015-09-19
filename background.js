@@ -13,7 +13,7 @@ var alertsReader = {
 	/**
    * where we are going to poll the alerts from
    */
-	dataSource_: 'http://www.oref.org.il/WarningMessages/alerts.json',
+	dataSource_: 'http://www.oref.org.il/WarningMessages/Alert/alerts.json?v=1',
 
 	/**
 	 * the last ID from the pikud. probably, ID change indicates possible alerts
