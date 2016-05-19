@@ -139,7 +139,7 @@ var alertsReader = {
  */
 var alertsCallback = function() {
 	alertsReader.pollAlerts();
-	window.setTimeout(alertsCallback, 3000);
+	window.setTimeout(alertsCallback, 1000);
 };
 
 document.addEventListener('DOMContentLoaded', alertsCallback);
